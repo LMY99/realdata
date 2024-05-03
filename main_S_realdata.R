@@ -23,9 +23,7 @@ t <- df$ageori # Age in original scale
 dfi <- 20 # DoF of Spline
 qknot <- (1:(dfi-3))/(dfi-2) # Quantiles to determine knots
 VIF <- 0.1 # Variance inflation factor for BETAKDE
-group <- c(1,1,1,
-           2,2,2,2,2,
-           3,3,3)
+group <- 1:11
 
 library(ggplot2)
 
@@ -170,4 +168,4 @@ for(i in 1:(R-1)){
   pb$tick()
 }
 stopImplicitCluster()
-save.image('biocard_result_group16nonzeros.RData')
+save.image('biocard_result_group16nonzeros_ungrouped.RData')

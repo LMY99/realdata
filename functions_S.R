@@ -721,7 +721,10 @@ update_pens_grouped <- function(
   group.id <- sort(unique(group))
   nC <- 0
   for(i in 1:length(group.id)){
-    temp <- colSums(norm.const[group==group.id[i],])
+    if(sum(group==group.id[i])>1)
+      temp <- colSums(norm.const[group==group.id[i],])
+    else
+      temp <- norm.const[group==group.id[i],]
     nC <- nC + logSumExp(temp)
   }
   ll <- sum(lpdf)-nC + lpd(lambda)
@@ -739,7 +742,10 @@ update_pens_grouped <- function(
   group.id <- sort(unique(group))
   nC <- 0
   for(i in 1:length(group.id)){
-    temp <- colSums(norm.const[group==group.id[i],])
+    if(sum(group==group.id[i])>1)
+      temp <- colSums(norm.const[group==group.id[i],])
+    else
+      temp <- norm.const[group==group.id[i],]
     nC <- nC + logSumExp(temp)
   }
   ll2 <- sum(lpdf)-nC + lpd(new)
