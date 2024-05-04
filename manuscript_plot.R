@@ -3,7 +3,7 @@ library(tidyverse)
 library(splines2)
 library(foreach)
 rm(list=ls()); gc(verbose=FALSE)
-load("biocard_result_group16nonzeros.RData")
+load("biocard_result_group16nonzeros_ungrouped.RData")
 # Make Point-CI plot for covariate effect ----
 indice <- (R/2+1):R
 summary_fixed <- apply(coefs[2:4,,indice],c(1,2),
